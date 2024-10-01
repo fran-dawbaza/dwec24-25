@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cambia estilos con javascript</title>
+</head>
+<body>
+    <p id="mytxt">Aprende javascript en DAW Baza</h1>
+    <button type="button" onclick="cambiaEstilo()">¡Dale!</button>
+    <script>
+        function cambiaEstilo(){
+            $mytxt = document.getElementById('mytxt');
+            $mytxt.style.fontSize = "25px";
+            $mytxt.style.color="blue";
+        }
+    </script>
+
+</body>
+</html>

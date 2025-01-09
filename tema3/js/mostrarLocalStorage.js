@@ -3,21 +3,25 @@ document.addEventListener('DOMContentLoaded', principal);
     
 // Función que se ejecuta al cargar los elementos de la página
 function principal(){   
-    // Mostramos el contenido de localStorage
-    const $contenido = document.getElementById('contenido');
-    $contenido.addEventListener('click',eliminaCoche);
-    const coches = JSON.parse(localStorage.getItem('coches'));
-    let listadoCoches = coches.map(c=>`
-            <li data-id="${c.id}">${c.marca} ${c.modelo} 
-            <button type="button">Eliminar</button>
-            </li>`).join('');
-    let plantilla = `<ul>${listadoCoches}</ul>`;
-        
-    $contenido.innerHTML = plantilla;
 
     // Añadimos evento para gestionar alta de coches
     const $formulario=document.getElementsByTagName('form')[0];
-    $formulario.addEventListener('submit',altaCoche);
+    $formulario.addEventListener('submit',altaCoche);    
+    
+    // Añadimos evento para eliminar un coche
+    const $contenido = document.getElementById('contenido');
+    $contenido.addEventListener('click',eliminaCoche);
+
+    // Mostramos el contenido de localStorage
+    const coches = JSON.parse(localStorage.getItem('coches'));
+    let listadoCoches = coches.map(c=>`
+        <li data-id="${c.id}">
+            ${c.marca} ${c.modelo} 
+            <button type="button">Eliminar</button>
+        </li>`).join('');
+    let plantilla = `<ul>${listadoCoches}</ul>`;
+        
+    $contenido.innerHTML = plantilla;
 
 /*  // Poblar localStorage con coches de ejemplo
     const $boton=document.getElementsByTagName('button')[0];
@@ -38,12 +42,12 @@ function pueblaLocalStorage(){
 }
 */
 function eliminaCoche(evento){
-    //console.log(evento.target.tagName);
+
     // salida prematura si el target no es un botón
     if (evento.target.tagName!=='BUTTON') return;
     if (evento.target.textContent !== 'Eliminar') return;
 
-    //console.log(evento.target.parentElement); //<li>
+    //console.log(evento.target.parentElement); //es el <li>
     eliminaCocheDeLocalStorage(evento.target.parentElement.dataset.id); 
     evento.target.parentElement.remove(); // eliminamos el coche del DOM
 }
@@ -51,17 +55,16 @@ function eliminaCoche(evento){
 function eliminaCocheDeLocalStorage(idCoche){
     // obtener coches de localStorage
     const coches = JSON.parse(localStorage.getItem('coches'));
-    //console.log(coches);
+
     // nos quedamos con un nuevo array sin el coche con id igual a idCoche
     const cochesFiltrados = coches.filter(c=>c.id!==idCoche);
-    //console.log(cochesFiltrados);
 
     // actualizamos localStorage con la nueva lista de coches
-
     localStorage.setItem('coches',JSON.stringify(cochesFiltrados));
 }
 
 function altaCoche(evento){
+    // bloqueamos la acción por defecto del submit, para permanecer en esta página
     evento.preventDefault();
         
     const coche = {
@@ -77,8 +80,11 @@ function altaCoche(evento){
 
     // añadimos coche al DOM
     const $contenido = document.getElementById('contenido');
-    const nuevoLI = `<li data-id="${coche.id}">${coche.marca} ${coche.modelo} 
-    <button type="button">Eliminar</button>
-    </li>`;
+    const nuevoLI = `
+        <li data-id="${coche.id}">
+            ${coche.marca} ${coche.modelo} 
+            <button type="button">Eliminar</button>
+        </li>`;
+    // $contenido.firstElementChild es la lista UL
     $contenido.firstElementChild.innerHTML += nuevoLI;
 }

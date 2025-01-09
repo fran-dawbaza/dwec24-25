@@ -3,8 +3,6 @@ document.addEventListener('DOMContentLoaded', principal);
     
     // Función que se ejecuta al cargar los elementos de la página
     function principal(){
-        const $boton=document.getElementsByTagName('button')[0];
-        $boton.addEventListener('click',pueblaLocalStorage);
         
         // Mostramos el contenido de localStorage
         const $contenido = document.getElementById('contenido');
@@ -22,8 +20,12 @@ document.addEventListener('DOMContentLoaded', principal);
         const $formulario=document.getElementsByTagName('form')[0];
         $formulario.addEventListener('submit',altaCoche);
 
+/*        // Poblar localStorage con coches de ejemplo
+        const $boton=document.getElementsByTagName('button')[0];
+        $boton.addEventListener('click',pueblaLocalStorage);
+**/
     }
-
+/*
     function pueblaLocalStorage(){
         const coches = [
             {id: "100", marca: "Seat", modelo: "Panda"},
@@ -35,7 +37,7 @@ document.addEventListener('DOMContentLoaded', principal);
             ];
         localStorage.setItem('coches', JSON.stringify(coches));
     }
-
+*/
     function eliminaCoche(evento){
         //console.log(evento.target.tagName);
         if (evento.target.tagName!=='BUTTON') return;
@@ -49,10 +51,10 @@ document.addEventListener('DOMContentLoaded', principal);
     function eliminaCocheDeLocalStorage(idCoche){
         // obtener coches de localStorage
         const coches = JSON.parse(localStorage.getItem('coches'));
-        console.log(coches);
+        //console.log(coches);
         // nos quedamos con un nuevo array sin el coche con id igual a idCoche
         const cochesFiltrados = coches.filter(c=>c.id!==idCoche);
-        console.log(cochesFiltrados);
+        //console.log(cochesFiltrados);
 
         // actualizamos localStorage con la nueva lista de coches
 

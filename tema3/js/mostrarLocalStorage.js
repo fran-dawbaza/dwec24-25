@@ -1,7 +1,11 @@
+"use strict";
 
+// key usada en localStorage para almacenar el array de coches
+const KEY_COCHES = 'coches'; 
+
+// Esperamos a que se carge el DOM para ejecutar nuestro programa principal
 document.addEventListener('DOMContentLoaded', principal);
     
-// Función que se ejecuta al cargar los elementos de la página
 function principal(){   
 
     // Añadimos evento para gestionar alta de coches
@@ -13,7 +17,7 @@ function principal(){
     $contenido.addEventListener('click',eliminaCoche);
 
     // Mostramos el contenido de localStorage
-    const coches = JSON.parse(localStorage.getItem('coches'));
+    const coches = JSON.parse(localStorage.getItem(KEY_COCHES));
     let listadoCoches = coches.map(c=>`
         <li data-id="${c.id}">
             ${c.marca} ${c.modelo} 
@@ -28,6 +32,7 @@ function principal(){
     $boton.addEventListener('click',pueblaLocalStorage);
 **/
 }
+
 /*
 function pueblaLocalStorage(){
     const coches = [
@@ -41,32 +46,37 @@ function pueblaLocalStorage(){
     localStorage.setItem('coches', JSON.stringify(coches));
 }
 */
+
 function eliminaCoche(evento){
 
     // salida prematura si el target no es un botón
     if (evento.target.tagName!=='BUTTON') return;
     if (evento.target.textContent !== 'Eliminar') return;
 
-    //console.log(evento.target.parentElement); //es el <li>
-    eliminaCocheDeLocalStorage(evento.target.parentElement.dataset.id); 
-    evento.target.parentElement.remove(); // eliminamos el coche del DOM
+    // evento.target.parentElement es el <li>
+    // dataset.id hace referencia al atributo html data-id del <li>
+    eliminaCocheDeLocalStorage(evento.target.parentElement.dataset.id);
+
+    // eliminamos el coche del DOM
+    evento.target.parentElement.remove(); 
 }
 
 function eliminaCocheDeLocalStorage(idCoche){
     // obtener coches de localStorage
-    const coches = JSON.parse(localStorage.getItem('coches'));
+    const coches = JSON.parse(localStorage.getItem(KEY_COCHES));
 
     // nos quedamos con un nuevo array sin el coche con id igual a idCoche
     const cochesFiltrados = coches.filter(c=>c.id!==idCoche);
 
     // actualizamos localStorage con la nueva lista de coches
-    localStorage.setItem('coches',JSON.stringify(cochesFiltrados));
+    localStorage.setItem(KEY_COCHES, JSON.stringify(cochesFiltrados));
 }
 
 function altaCoche(evento){
     // bloqueamos la acción por defecto del submit, para permanecer en esta página
     evento.preventDefault();
         
+    // ponemos como id el timestamp como cadena
     const coche = {
         id: String(Date.now()),
         marca: evento.target.marca.value,
@@ -74,9 +84,9 @@ function altaCoche(evento){
     };
 
     // añadimos coche a localStorage
-    const coches = JSON.parse(localStorage.getItem('coches'));
+    const coches = JSON.parse(localStorage.getItem(KEY_COCHES));
     coches.push(coche);
-    localStorage.setItem('coches',JSON.stringify(coches))
+    localStorage.setItem(KEY_COCHES,JSON.stringify(coches))
 
     // añadimos coche al DOM
     const $contenido = document.getElementById('contenido');
@@ -85,6 +95,6 @@ function altaCoche(evento){
             ${coche.marca} ${coche.modelo} 
             <button type="button">Eliminar</button>
         </li>`;
-    // $contenido.firstElementChild es la lista UL
+    //      $contenido.firstElementChild es la lista UL
     $contenido.firstElementChild.innerHTML += nuevoLI;
 }

@@ -16,8 +16,14 @@ function principal(){
     const $contenido = document.getElementById('contenido');
     $contenido.addEventListener('click',eliminaCoche);
 
-    // Mostramos el contenido de localStorage
+    // Recuperamos coches de localStorage
     const coches = JSON.parse(localStorage.getItem(KEY_COCHES));
+    // La primera vez no existe esa key en localStorage
+    if (coches === null || !Array.isArray(coches)) {
+        localStorage.setItem(KEY_COCHES,'[]');
+        return;
+    }
+    // Construimos la cadena de LIs con los coches
     let listadoCoches = coches.map(c=>`
         <li data-id="${c.id}">
             ${c.marca} ${c.modelo} 

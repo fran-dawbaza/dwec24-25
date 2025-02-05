@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Juego de Memoria</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <h1>Juego de Memoria</h1>
+    <p>Selecciona la dificultad y el tipo de juego para comenzar.</p>
+    <div>
+        <label for="selectDificultad">Dificultad:</label>
+        <select id="selectDificultad">
+            <option value="3">fácil</option>
+            <option selected value="4">Normal</option>
+            <option value="5">Difícil</option>
+            <option value="6">Muy difícil</option>
+        </select>
+        <label for="selectTipo">Tipo:</label>
+        <select id="selectTipo">
+            <option value="numeros">Números</option>
+            <option value="dog">Perros</option>
+            <option value="cat">Gatos</option>
+            <option value="bird">Pájaros</option>
+            <option value="animal">Animales</option>
+            <option value="face">Rostros</option>
+            <option value="house">Casas</option>
+        </select>
+        <button id="btnIniciar">Iniciar Juego</button>
+    </div>
+    <p id="mensajes"></p>
+    <p>Intentos: <span id="intentos">0</span></p>
+    <p>Tiempo: <span id="tiempo">0</span> segundos</p>
+    <div id="tablero"></div>
+    <script src="./jMemoria.js"></script>
+</body>
+</html>

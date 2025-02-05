@@ -72,6 +72,7 @@ function actualizarTemporizador(tiempo) {
 }
 
 function actualizarIntentos() {
+    intentos++;
     const $intentos = document.getElementById('intentos');
     $intentos.textContent = intentos;
 }
@@ -90,7 +91,6 @@ function manejaClickEnTablero(evento){
     cartasVolteadas.push($carta);
 
     if (cartasVolteadas.length === 2) {
-        intentos++;
         actualizarIntentos();
         comprobarPareja();
     }

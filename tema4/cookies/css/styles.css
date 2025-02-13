@@ -1,0 +1,77 @@
+.claro {
+    background-color: white;
+    color: black;
+}
+
+.oscuro {
+    background-color: #1a1a1a;
+    color: white;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+}
+
+.claro nav {
+    background-color: #f0f0f0;
+}
+
+.oscuro nav {
+    background-color: #2d2d2d;
+}
+
+.claro nav a {
+    color: black;
+}
+
+.oscuro nav a {
+    color: white;
+}
+
+
+nav {
+    padding: 15px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+}
+
+
+nav a {
+    text-decoration: none;
+    margin-right: 15px;
+    padding: 5px 10px;
+}
+
+nav a:hover {
+    text-decoration: underline;
+}
+
+form {
+    max-width: 500px;
+    margin: 20px auto;
+}
+
+fieldset {
+    border: 1px solid;
+    padding: 15px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+}
+
+legend {
+    padding: 0 10px;
+}
+
+button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3;
+}

@@ -1,7 +1,12 @@
 import {traducciones} from './traducciones.js';
 
 // Gestión de cookies
-/*export function getCookie(name) {
+
+/*
+getCookie es necesaria en ponModo, que se ejecuta en la cabecera,
+entonces no puede ir su declaración en un módulo
+
+function getCookie(name) {
     const cookie = document.cookie
                     .split('; ')
                     .find(row => row.startsWith(name + '='))
@@ -29,8 +34,11 @@ export function traduceContenido() {
     });
 }
 
+/*
+Ya no es necesaria programaTraducciones, puesto que traduceContenido 
+se invoca dentro de main.js que va en diferido por ser un módulo
 
-export function programaTraducciones() {
+function programaTraducciones() {
     // Esperamos a la carga del DOM
     document.addEventListener('DOMContentLoaded',traduceContenido);
-}
+}*/

@@ -1,5 +1,4 @@
-import {chequeaCookies} from './utileria.js';
-import {traduceContenido} from './utileria.js';
+import {chequeaCookies,traduceContenido} from './utileria.js';
 
 chequeaCookies();
 traduceContenido();

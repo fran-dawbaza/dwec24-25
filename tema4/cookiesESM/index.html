@@ -5,9 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title data-traduce="index"></title>
     <link rel="stylesheet" href="css/styles.css">
+    <!--
+    ponModo debe ejecutarse ahora, no después de la carga
+    del DOM, por lo que no puede hacerse en un módulo
+    -->
     <script src="js/ponModo.js"></script>
 </head>
 <body>
+    <!-- al ser un módulo se ejecuta en diferido, por lo
+     que da igual donde coloquemos la siguiente etiqueta
+     script -->
     <script type="module" src="js/main.js"></script>
     <nav>
         <a href="index.html" data-traduce="index"></a>

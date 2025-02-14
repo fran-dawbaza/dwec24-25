@@ -1,4 +1,3 @@
-//import {getCookie} from './utileria.js';
 import {traduceContenido} from './utileria.js';
 
 

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-traduce="settings"></title>
+    <link rel="stylesheet" href="css/styles.css">
+    <script src="js/ponModo.js"></script>
+    <script type="module" src="js/config.js"></script>
+</head>
+<body>
+    <nav>
+        <a href="index.html" data-traduce="index"></a>
+        <a href="otra.html" data-traduce="otra"></a>
+        <a href="config.html" data-traduce="config"></a>
+    </nav>
+    
+    <h1 data-traduce="configH1"></h1>
+    
+    <form id="formularioConfig">
+        <fieldset>
+            <legend data-traduce="modoVisual"></legend>
+            <label>
+                <input type="radio" name="modo" value="claro" required>
+                <span data-traduce="modoClaro"></span>
+            </label>
+            <label>
+                <input type="radio" name="modo" value="oscuro">
+                <span data-traduce="modoOscuro"></span>
+            </label>
+        </fieldset>
+
+        <fieldset>
+            <legend data-traduce="idioma"></legend>
+            <label>
+                <input type="radio" name="idioma" value="es" required>
+                <span data-traduce="castellano"></span>
+            </label>
+            <label>
+                <input type="radio" name="idioma" value="en">
+                <span data-traduce="ingles"></span>
+            </label>
+        </fieldset>
+
+        <button type="submit" data-traduce="guardar"></button>
+    </form>
+</body>
+</html>

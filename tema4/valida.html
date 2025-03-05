@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejemplo de validación</title>
+    <style>
+        input:invalid {   
+            border: 2px solid red;
+        }
+    </style>
+</head>
+<body>
+    <h1>Formulario con validación HTML</h1>
+    <form><input type="text" required pattern="algo|alga" name="t1">
+    <button type="submit">Enviar</button></form>
+
+    <h1>Formulario con validación HTML y usando la API de validación</h1>
+    <form><input type="text" required pattern="algo|alga" name="t2">
+    <button type="submit">Enviar</button></form>
+
+    <h1>Formulario con validación HTML y sin usar la API de validación</h1>
+    <form novalidate><input type="text" required pattern="algo|alga" name="t3">
+    <button type="submit">Enviar</button></form>
+    <script src="js/valida.js"></script>
+</body>
+</html>

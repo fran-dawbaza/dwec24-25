@@ -14,5 +14,26 @@
     </table>
     <mietiqueta>algo aquí</mietiqueta>
     <algo />
+
+    <style>
+        .alert {
+          padding: 15px;
+          border: 1px solid #d6e9c6;
+          border-radius: 4px;
+          color: #3c763d;
+          background-color: #dff0d8;
+        }
+        </style>
+        
+        <div class="alert" id="div">
+          <strong>¡Hola!</strong> Usted ha leído un importante mensaje.
+        </div>
+        
+        <script>
+          let div2 = div.cloneNode(true); // clona el mensaje
+          div2.querySelector('strong').innerHTML = '¡Adiós!'; // altera el clon
+        
+          div.after(div2); // muestra el clon después del div existente
+        </script>    
 </body>
 </html>

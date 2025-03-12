@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejemplo de uso de fetch</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+</head>
+<body>
+    <h1>Nos conectamos a JSONPlaceHolder y completamos la tabla con AJAX</h1>
+    <h4>Usamos fetch en la URL https://jsonplaceholder.typicode.com/todos para obtener las tareas</h4>
+    <h4>y fetch en https://jsonplaceholder.typicode.com/users para obtener los usuarios</h4>
+    <div class="container my-4">
+        <h3 class="mb-4">Tabla con Paginación</h3>
+        <table class="table table-bordered">
+            <thead class="thead-dark">
+                <tr>
+                    <th>#</th>
+                    <th>Nombre</th>
+                    <th>Tarea</th>
+                    <th>Hecho</th>
+                </tr>
+            </thead>
+            <tbody id="cuerpo-tabla">
+                <tr>
+                    <td>1</td>
+                    <td>Pepe Gotera</td>
+                    <td>Echar el tabique abajo</td>
+                    <td><input type="checkbox" checked inert/></td>
+                    <!-- no funciona disabled en checkbox -->
+                </tr>
+            </tbody>
+        </table>
+        <nav>
+            <ul class="pagination justify-content-center" id="paginacion">
+                <li class="page-item disabled">
+                    <a class="page-link" href="#" aria-label="Previous">
+                        <span aria-hidden="true">&laquo;</span>
+                    </a>
+                </li>
+                <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                <li class="page-item">
+                    <a class="page-link" href="#" aria-label="Next">
+                        <span aria-hidden="true">&raquo;</span>
+                    </a>
+                </li>
+    
+            </ul>            
+        </nav>   
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script src="js/fetch.js"></script>
+</body>
+</html>

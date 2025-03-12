@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Callback síncrono y asíncrono</title>
+</head>
+<body>
+    <h1>Callback síncrono y asíncrono</h1>
+    <script>
+"use strict";
+function ejemploCBSincrono(mensaje,cb){
+    cb(mensaje);
+}
+
+ejemploCBSincrono('Hola mundo',alert);
+
+function ejemploCBAsincrono(mensaje,cb){
+    setTimeout(cb,3000,mensaje);
+}
+
+ejemploCBAsincrono('Hola mundo',console.log);
+
+</script>
+</body>
+</html>
